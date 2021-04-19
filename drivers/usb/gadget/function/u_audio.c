@@ -23,8 +23,8 @@
 
 #include "u_audio.h"
 
-#define BUFF_SIZE_MAX	(PAGE_SIZE * 16)
-#define PRD_SIZE_MAX	PAGE_SIZE
+#define BUFF_SIZE_MAX	(PAGE_SIZE * 16 * 64)
+#define PRD_SIZE_MAX	PAGE_SIZE * 64
 #define MIN_PERIODS	4
 
 enum {
