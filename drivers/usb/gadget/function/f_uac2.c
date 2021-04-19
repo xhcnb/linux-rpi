@@ -268,7 +268,7 @@ static struct usb_endpoint_descriptor hs_ep_int_desc = {
 
 	.bmAttributes = USB_ENDPOINT_XFER_INT,
 	.wMaxPacketSize = cpu_to_le16(6),
-	.bInterval = 4,
+	.bInterval = 1,
 };
 
 /* Audio Streaming OUT Interface - Alt0 */
@@ -333,7 +333,7 @@ static struct usb_endpoint_descriptor hs_epout_desc = {
 
 	/* .bmAttributes = = DYNAMIC */
 	/* .wMaxPacketSize = DYNAMIC */
-	.bInterval = 4,
+	.bInterval = 1,
 };
 
 /* CS AS ISO OUT Endpoint */
