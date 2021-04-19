@@ -106,7 +106,7 @@ static void u_audio_set_fback_frequency(enum usb_device_speed speed,
 		 * Format is encoded in Q10.10 left-justified in the 24 bits,
 		 * so that it has a Q10.14 format.
 		 */
-		ff = DIV_ROUND_UP((freq << 14), 1000);
+		ff = ((freq << 13) + 62) / 125;
 	} else {
 		/*
 		 * High-speed feedback endpoints report frequency
@@ -118,7 +118,7 @@ static void u_audio_set_fback_frequency(enum usb_device_speed speed,
 		 * Prevent integer overflow by calculating in Q12.13 format and
 		 * then shifting to Q16.16
 		 */
-		ff = DIV_ROUND_UP((freq << 13), (8*1000)) << 3;
+		ff = ((freq << 10) + 62) / 125;
 	}
 	*(__le32 *)buf = cpu_to_le32(ff);
 }
